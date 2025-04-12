@@ -7,7 +7,9 @@
     <authors>Nx</authors>
     <owners>jaysoo</owners>
     <projectUrl>https://nx.dev</projectUrl>
+    <docsUrl >https://nx.dev/docs</docsUrl>
     <projectSourceUrl>https://github.com/nrwl/nx</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/nrwl/nx/issues</bugTrackerUrl>
     <packageSourceUrl>https://github.com/jaysoo/chocolatey-nx</packageSourceUrl>
     <releaseNotes>http://github.com/nrwl/nx/releases</releaseNotes>
     <licenseUrl>https://github.com/nrwl/nx/blob/master/LICENSE</licenseUrl>
