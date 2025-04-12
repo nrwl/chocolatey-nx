@@ -7,12 +7,16 @@
     <authors>Nx</authors>
     <owners>jaysoo</owners>
     <projectUrl>https://nx.dev</projectUrl>
+    <packageSourceUrl>https://github.com/jaysoo/chocolatey-nx</packageSourceUrl>
+    <releaseNotes>http://github.com/nrwl/nx/releases</releaseNotes>
     <licenseUrl>https://github.com/nrwl/nx/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png</iconUrl>
     <dependencies>
       <dependency id="nodejs-lts" version="[22.14.0,)" />
     </dependencies>
     <description>Nx is a build system, optimized for monorepos, with plugins for popular frameworks and tools and advanced CI capabilities including caching and distribution.</description>
+    <summary>The Nx CLI is designed for scaling monorepos. It supercharges your tasks through orchestration, caching, and distribution. Increase velocity by improving the maintainability of your code base through features such as module boundaries, ownership, and conformance.</summary>
     <tags>nx monorepo cli</tags>
   </metadata>
 </package>
