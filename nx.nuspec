@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>nx</id>
+    <version>20.7.2</version>
+    <title>Nx CLI</title>
+    <authors>Nx</authors>
+    <owners>jaysoo</owners>
+    <projectUrl>https://nx.dev</projectUrl>
+    <licenseUrl>https://github.com/nrwl/nx/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+      <dependency id="nodejs-lts" version="[22.14.0,)" />
+    </dependencies>
+    <description>Nx is a build system, optimized for monorepos, with plugins for popular frameworks and tools and advanced CI capabilities including caching and distribution.</description>
+    <tags>nx monorepo cli</tags>
+  </metadata>
+</package>
