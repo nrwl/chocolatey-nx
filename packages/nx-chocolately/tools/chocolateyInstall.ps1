@@ -5,11 +5,15 @@ $version     = '20.7.2'
 $toolsDir    = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $tgzUrl      = "https://registry.npmjs.org/$packageName/-/$packageName-$version.tgz"
 $tgzFile     = Join-Path $toolsDir "$packageName-$version.tgz"
+$checksum     = 'f08ea793607013911604bd9854584eacb684f1abce8588cc722e0e7c339827e7'
+$checksumType = 'sha256'
 
 # 1. Download the tarball
 Get-ChocolateyWebFile -PackageName $packageName `
                       -FileFullPath $tgzFile `
-                      -Url $tgzUrl
+                      -Url $tgzUrl `
+                      -Checksum $checksum `
+                      -ChecksumType $checksumType
 
 # 2. Locate npm.cmd reliably
 $npm = Get-Command npm.cmd -ErrorAction SilentlyContinue |
