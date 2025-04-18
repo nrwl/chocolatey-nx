@@ -16,8 +16,7 @@ Get-ChocolateyWebFile -PackageName $packageName `
                       -ChecksumType $checksumType
 
 # 2. Locate npm.cmd reliably
-$npm = Get-Command npm.cmd -ErrorAction SilentlyContinue |
-       Select-Object -ExpandProperty Source -First 1
+$npm = (Get-Command npm.cmd -ErrorAction SilentlyContinue).Source 
 if (-not $npm) {
   # fallback: Chocolatey always links npm here
   $npm = Join-Path $env:ChocolateyInstall 'bin\npm.cmd'
@@ -27,18 +26,16 @@ if (-not $npm) {
 }
 
 # 3. Install Nx into toolsDir (self‑contained)
-$npmArgs = @(
-  '--prefix', $toolsDir,
-  'install',  $tgzFile,
-  '--omit=dev',
-  '--loglevel','error','--no-audit','--no-fund'
-)
-$proc = Start-Process -FilePath $npm `
-                      -ArgumentList $npmArgs `
-                      -NoNewWindow -Wait -PassThru
-if ($proc.ExitCode -ne 0) {
-  throw "npm exited with code $($proc.ExitCode)"
-}
+$npmArgs = @"
+install --prefix "`"$toolsDir`"" "`"$tgzFile`"" --omit=dev --loglevel error --no-audit --no-fund
+"@
+
+Write-Host "Running: `"$npm`" $npmArgs"
+
+Start-ChocolateyProcessAsAdmin `
+  -ExeToRun       $npm `
+  -Statements     $npmArgs `
+  -WorkingDirectory $toolsDir
 
 # 4. Shim the wrapper npm just created
 $wrapper = Join-Path $toolsDir 'node_modules\.bin\nx.cmd'

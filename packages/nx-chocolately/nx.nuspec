@@ -14,7 +14,7 @@
     <releaseNotes>http://github.com/nrwl/nx/releases</releaseNotes>
     <licenseUrl>https://github.com/nrwl/nx/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/nrwl/nx/images/nx-logo.png</iconUrl>
     <dependencies>
       <dependency id="nodejs-lts" version="[22.14.0,)" />
     </dependencies>
