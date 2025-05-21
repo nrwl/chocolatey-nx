@@ -1,11 +1,11 @@
 $ErrorActionPreference = 'Stop'
 
 $packageName = 'nx'
-$version     = '20.7.2'
+$version     = '21.0.4'
 $toolsDir    = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $tgzUrl      = "https://registry.npmjs.org/$packageName/-/$packageName-$version.tgz"
 $tgzFile     = Join-Path $toolsDir "$packageName-$version.tgz"
-$checksum     = 'f08ea793607013911604bd9854584eacb684f1abce8588cc722e0e7c339827e7'
+$checksum     = 'dd1bf64358661a2d14dd027f8b0c6d8eea051afff4ec8206407bdb9335991f9f'
 $checksumType = 'sha256'
 
 # 1. Download the tarball
