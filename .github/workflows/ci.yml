@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install Chocolatey
+      run: |
+        Set-ExecutionPolicy Bypass -Scope Process -Force; `
+        [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; `
+        iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+    - name: Verify Chocolatey installation
+      run: choco --version
+
+    - name: Change directory to nx-chocolatey
+      working-directory: packages/nx-chocolatey
+      run: |
+        # Pack the Chocolatey package
+        choco pack
+
+        # Test installing the package locally
+        choco install nx -s . --ignore-dependencies
+
+        # Verify the installation
+        nx --version
+
+        # Uninstall the package after testing
+        choco uninstall nx -y
