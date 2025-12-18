@@ -1,11 +1,11 @@
 $ErrorActionPreference = 'Stop'
 
 $packageName = 'nx'
-$version     = '21.2.1'
+$version     = '22.3.1'
 $toolsDir    = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $tgzUrl      = "https://registry.npmjs.org/$packageName/-/$packageName-$version.tgz"
 $tgzFile     = Join-Path $toolsDir "$packageName-$version.tgz"
-$checksum     = '6b07809bf959112ad9c6764e6366a8d13bb445dc7674239381249cd2fd6901d1'
+$checksum     = '94279a651663fc7540bc29b93625636e886868bbb197eb0ff4067946553a1522'
 $checksumType = 'sha256'
 
 # 1. Download the tarball
@@ -27,7 +27,7 @@ if (-not $npm) {
 
 # 3. Install Nx into toolsDir (self‑contained)
 $npmArgs = @"
-install --prefix "`"$toolsDir`"" "`"$tgzFile`"" --omit=dev --loglevel error --no-audit --no-fund
+install --prefix "`"$toolsDir`"" "`"$tgzFile`"" --omit=dev --loglevel error --no-audit --no-fund --ignore-scripts
 "@
 
 Write-Host "Running: `"$npm`" $npmArgs"
@@ -45,5 +45,6 @@ if (-not (Test-Path $wrapper)) {
 Install-BinFile -Name 'nx' -Path $wrapper
 
 Write-Host "Nx $version installed successfully."
+
 
 
