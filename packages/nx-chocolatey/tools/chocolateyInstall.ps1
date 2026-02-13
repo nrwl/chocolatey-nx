@@ -1,11 +1,11 @@
 $ErrorActionPreference = 'Stop'
 
 $packageName = 'nx'
-$version     = '22.3.1'
+$version     = '22.4.5'
 $toolsDir    = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $tgzUrl      = "https://registry.npmjs.org/$packageName/-/$packageName-$version.tgz"
 $tgzFile     = Join-Path $toolsDir "$packageName-$version.tgz"
-$checksum     = '94279a651663fc7540bc29b93625636e886868bbb197eb0ff4067946553a1522'
+$checksum     = 'bde6a6e2031ae7fc8ab802cd3ac2d378791ddee9e50b62c4ba88783832460634'
 $checksumType = 'sha256'
 
 # 1. Download the tarball
@@ -45,6 +45,7 @@ if (-not (Test-Path $wrapper)) {
 Install-BinFile -Name 'nx' -Path $wrapper
 
 Write-Host "Nx $version installed successfully."
+
 
 
 
