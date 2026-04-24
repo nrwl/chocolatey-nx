@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>nx</id>
-    <version>22.6.5</version>
+    <version>22.7.0</version>
     <title>Nx CLI</title>
     <authors>Nx</authors>
     <owners>jaysoo</owners>
